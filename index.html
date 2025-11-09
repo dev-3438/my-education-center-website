@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lakshita Education Center</title>
+  <meta name="description" content="Lakshita Education Center — coaching, tutoring and skill classes for students.">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
+      --radius:16px; --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; background:linear-gradient(180deg,#071020 0%, #0a1320 60%); color:#e6eef6; -webkit-font-smoothing:antialiased;
+      display:flex; justify-content:center; padding:40px 20px; 
+    }
+    .wrap{width:100%;max-width:var(--maxw);} 
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);margin-bottom:26px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;box-shadow:0 6px 20px rgba(124,58,237,0.18);transform:rotate(-8deg)}
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:#fff;background:var(--glass)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:34px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px}
+    .eyebrow{display:inline-block;background:rgba(124,58,237,0.12);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;margin-bottom:12px}
+    .lead{font-size:34px;line-height:1.05;margin:6px 0 12px}
+    .lead small{display:block;font-size:14px;color:var(--muted);margin-top:12px}
+    .cta-row{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(124,58,237,0.18)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+
+    /* features */
+    .features{display:flex;gap:14px;margin-top:18px}
+    .feature{flex:1;padding:12px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .feature h4{margin:6px 0 8px}
+    .muted{color:var(--muted)}
+
+    /* courses */
+    .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .course{padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border-radius:10px;transition:transform .35s cubic-bezier(.2,.9,.2,1);cursor:pointer}
+    .course:hover{transform:translateY(-6px) scale(1.01)}
+    .pill{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 9px;border-radius:999px;font-size:12px}
+
+    /* testimonial */
+    .testi{display:flex;gap:14px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#111827,#0b1220);display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* contact */
+    form{display:grid;gap:8px}
+    input,textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    input::placeholder, textarea::placeholder{color:var(--muted)}
+    .row{display:flex;gap:10px}
+
+    /* footer */
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr} .courses{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:560px){.courses{grid-template-columns:1fr} header{flex-direction:column;gap:12px} .brand h1{font-size:16px} .lead{font-size:26px} }
+
+    /* animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1)}
+    .reveal.show{opacity:1;transform:translateY(0)}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .logo{animation:floaty 4s ease-in-out infinite}
+    .spark{position:absolute;right:18px;top:18px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(124,58,237,0.12), transparent 30%);} 
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="position:relative">
+      <div class="spark" aria-hidden></div>
+      <header class="reveal">
+        <div class="brand">
+          <div class="logo">L</div>
+          <div>
+            <h1>Lakshita Education Center</h1>
+            <p>Coaching • Tutoring • Skill Classes</p>
+          </div>
+        </div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#courses">Courses</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="hero reveal" id="top">
+        <section>
+          <span class="eyebrow">Admissions Open • 2025</span>
+          <h2 class="lead">Grow, learn, and achieve with <strong>Lakshita</strong>
+            <small class="muted">Personalised coaching for school students, exam prep, and soft skills.</small>
+          </h2>
+
+          <div class="cta-row">
+            <button class="btn" onclick="scrollToSection('#contact')">Enroll Now</button>
+            <button class="btn ghost" onclick="scrollToSection('#courses')">View Courses</button>
+          </div>
+
+          <div class="features" style="margin-top:18px">
+            <div class="feature">
+              <h4>Small batches</h4>
+              <p class="muted">Focused attention with experienced tutors.</p>
+            </div>
+            <div class="feature">
+              <h4>Practical learning</h4>
+              <p class="muted">Project-based classes and regular assessments.</p>
+            </div>
+            <div class="feature">
+              <h4>Flexible timings</h4>
+              <p class="muted">Weekend & evening batches available.</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="card" aria-hidden>
+          <h3 style="margin-top:0">Why Lakshita?</h3>
+          <p class="muted">We blend concept clarity with regular practice. Students improve grades and confidence.</p>
+
+          <div style="margin-top:14px">
+            <div class="course" style="margin-bottom:10px">
+              <div style="display:flex;justify-content:space-between;align-items:center"><strong>Class 9–12 Science</strong><span class="pill">Batch</span></div>
+              <p class="muted" style="margin-top:8px">Comprehensive coverage for board exams and competitive prep.</p>
+            </div>
+            <div class="course" style="margin-bottom:10px">
+              <div style="display:flex;justify-content:space-between;align-items:center"><strong>Spoken English</strong><span class="pill">Skill</span></div>
+              <p class="muted" style="margin-top:8px">Confidence-building sessions with interactive activities.</p>
+            </div>
+            <div class="course">
+              <div style="display:flex;justify-content:space-between;align-items:center"><strong>Coding Basics</strong><span class="pill">New</span></div>
+              <p class="muted" style="margin-top:8px">HTML, CSS, JS intro — perfect for young learners.</p>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <section id="about" class="card reveal" style="margin-top:18px">
+        <h3>About Lakshita</h3>
+        <p class="muted">Lakshita Education Center has a simple mission: make learning clear and fun. Our tutors focus on concept mastery, continuous assessment and personal mentoring.</p>
+      </section>
+
+      <section id="courses" class="reveal" style="margin-top:18px">
+        <h3>Popular Courses</h3>
+        <div class="courses">
+          <div class="course card">
+            <h4>Data analysis</h4>
+            <p class="muted">learn everything from excel python to panda and numpy</p>
+          </div>
+          <div class="course card">
+            <h4>Web Development</h4>
+            <p class="muted">learn web Development from beginner to advanced</p>
+          </div>
+          <div class="course card">
+            <h4>English & Communication</h4>
+            <p class="muted">Fluency workshops, grammar drills, and presentation practice.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="card reveal" style="margin-top:18px">
+        <h3>What students say</h3>
+        <div class="testi" style="margin-top:12px">
+          <div class="avatar">A</div>
+          <div>
+            <strong>Aarav, Class 10</strong>
+            <p class="muted">"My marks improved by 18% in the first term. Teachers explain things clearly."</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="card reveal" style="margin-top:18px">
+        <h3>Contact & Enroll</h3>
+        <form onsubmit="event.preventDefault();submitForm();" aria-label="Enrollment form">
+          <div class="row">
+            <input required placeholder="Full name" id="name">
+            <input required placeholder="Phone or WhatsApp" id="phone">
+          </div>
+          <input placeholder="Which course are you interested in?" id="course">
+          <textarea placeholder="Any message or preferred timing" rows="4" id="message"></textarea>
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button class="btn" type="submit">Send Enrollment</button>
+            <button class="btn ghost" type="button" onclick="copyPhone()">Copy Contact</button>
+          </div>
+          <p id="formmsg" class="muted" style="margin-top:10px"></p>
+        </form>
+        <p class="muted" style="margin-top:12px">Address: 12, Lakshita Path, Near Central Park — Phone: <strong id="phoneNum">+91 98765 43210</strong></p>
+      </section>
+
+      <footer class="reveal">
+        © <span id="year"></span> Lakshita Education Center — Built with care
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // small helpers
+    function scrollToSection(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth',block:'start'})}
+    function copyPhone(){const t=document.getElementById('phoneNum').innerText;navigator.clipboard?.writeText(t).then(()=>{flash('Copied contact to clipboard')})}
+    function flash(msg){const el=document.getElementById('formmsg');el.textContent=msg;setTimeout(()=>el.textContent='',2500)}
+
+    function submitForm(){const n=document.getElementById('name').value||'Anonymous';flash('Thanks '+n+' — we will call you soon!');document.getElementById('name').value='';document.getElementById('phone').value='';document.getElementById('course').value='';document.getElementById('message').value=''}
+
+    // reveal on scroll
+    const ritems=document.querySelectorAll('.reveal');
+    const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show')} })},{threshold:0.12});
+    ritems.forEach(i=>obs.observe(i));
+
+    // set year
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
